@@ -42,6 +42,7 @@ The plugin could be customized with:
 * `set-option -g @tmux-weather-units" "m"` - Set up weather units (u - for USCS, m - for metric system), by default used metric units.
 * `set-option -g @tmux-weather-hide-units" "true"` - Hide the units (°C or °F)
 * `set-option -g @tmux-weather-hide-positive-number-sign" "true"` - Hide the + sign in front of positive temperatures (`+19°C -> 19°C`)
+* `set-option -g @tmux-weather-sanitize" "true"` - Set this to "true" if you want leading/trailing spaces to be removed from the output. This will also replace consecutive spaces with a single one.
 
 ## Other plugins
 * [tmux-network-bandwidth](https://github.com/xamut/tmux-network-bandwidth)

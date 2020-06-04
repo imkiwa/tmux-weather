@@ -45,7 +45,17 @@ get_weather() {
       ;;
   esac
 
-  echo "$res"
+  case "$(get_tmux_option "@tmux-weather-sanitize")" in
+    true|1|yes)
+      # trim spaces at the beginning and the end and dedup multi space chars
+      res="$(sed -r -e 's/^[[:space:]]*//' \
+                 -e 's/[[:space:]]*$//' \
+                 -e 's/([[:space:]])[[:space:]]+/\1/' \
+             <<< "$res")"
+      ;;
+  esac
+
+  echo -n "$res"
 }
 
 main() {

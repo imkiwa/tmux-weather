@@ -55,6 +55,12 @@ get_weather() {
       ;;
   esac
 
+  case "$res" in
+    "Unknown location"*)
+      res="??? 🤷"
+      ;;
+  esac
+
   echo -n "$res"
 }
 

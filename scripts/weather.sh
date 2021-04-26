@@ -49,8 +49,8 @@ get_weather() {
     true|1|yes)
       # trim spaces at the beginning and the end and dedup multi space chars
       res="$(sed -r -e 's/^[[:space:]]*//' \
-                 -e 's/[[:space:]]*$//' \
-                 -e 's/([[:space:]])[[:space:]]+/\1/' \
+                    -e 's/[[:space:]]*$//' \
+                    -e 's/([[:space:]])[[:space:]]+/\1/' \
              <<< "$res")"
       ;;
   esac

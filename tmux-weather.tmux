@@ -7,7 +7,7 @@ source "${CURRENT_DIR}/scripts/helpers.sh"
 replace_placeholder_in_status_line() {
   local placeholder="\#{$1}"
   local script="#($2)"
-  local status_line_side=status-${3:-right}
+  local status_line_side=status-${3:-left}
   local old_status_line
   local new_status_line
 

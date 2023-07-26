@@ -70,14 +70,17 @@ main() {
   local previous_update
   local update_interval
   local value
+  local previous_value
 
   update_interval="$(get_tmux_option "@tmux-weather-interval" "$DEFAULT_UPDATE_INTERVAL")"
   update_interval=$(( 60 * update_interval ))
   current_time="$(date "+%s")"
   previous_update="$(get_tmux_option "@weather-previous-update-time")"
   delta="$(( current_time - previous_update ))"
+  previous_value=$(get_tmux_option "@weather-previous-value")
 
-  if [[ -z "$previous_update" ]] || [[ "$delta" -ge "$update_interval" ]] || \
+  if [[ -z "$previous_update" ]] || [[ -z "$previous_value" ]] || \
+     [[ "$delta" -ge "$update_interval" ]] || \
      [[ -n "$WEATHER_FORCE_UPDATE" ]]  # debug
   then
     echo "Updating weather data" >&2
